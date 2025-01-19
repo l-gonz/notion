@@ -18,7 +18,7 @@ notion_api_key = secrets.get('NOTION_API_KEY')
 notion = Client(auth=notion_api_key)
 
 # Define the database ID
-DATABASE_ID = 'bc5630656202460388e337adabc1fb35'
+DATABASE_ID = 'bc5630656202460388e337adabc1fb35'  # Workouts database
 
 # Function to add days to a given date
 def add_days_to_date(date_str, days):
@@ -103,11 +103,13 @@ def main():
         page_name = item['properties']['Name']['title'][0]['text']['content']
         date_property = item['properties'].get('Date', {})
         
-        if date_property and date_property['date'] and date_property['date']['start'] and 'AA' in page_name:
+        if 'Saiyan' in page_name:
             original_date = date_property['date']['start']
-            new_date = add_days_to_date(original_date, 4)
-            # update_page_date(page_id, new_date)
-            print(f"Updated page {page_name} {page_id} date from {original_date} to {new_date}")
+            new_date = add_days_to_date(original_date, 3)
+            print(f"Update page {page_name} {page_id} date from {original_date} to {new_date}")
+
+            # UNCOMMENT TO MODIFY DATABASE
+            update_page_date(page_id, new_date)
 
 if __name__ == "__main__":
     main()
