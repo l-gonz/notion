@@ -86,7 +86,9 @@ def update_notion_task(database_id, page_id):
             page_id=page_id,
             properties={ 
                 'Due': next_due,
-                'Done': {'checkbox': False}
+                'Done': {'checkbox': False},
+                'State': {'type': 'status',
+                          'status': {'name': 'To Do'}}
             }
         )
         logger.info("Page updated successfully.")
