@@ -18,7 +18,7 @@ notion_api_key = secrets.get('NOTION_API_KEY')
 notion = Client(auth=notion_api_key)
 
 # Define the database ID
-DATABASE_ID = 'bc5630656202460388e337adabc1fb35'  # Workouts database
+DATABASE_ID = secrets.get('WORKOUTS_DB')  # Workouts database
 
 # Function to add days to a given date
 def add_days_to_date(date_str, days):

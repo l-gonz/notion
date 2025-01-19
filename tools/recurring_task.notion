@@ -1,3 +1,9 @@
+# Next Due calculation for recurring tasks
+# Notion formulas scripting language
+#
+# Modified from Thomas Frank's Ultimate Tasks template: 
+# https://thomasfrank.notion.site/Ultimate-Tasks-for-Notion-982c5dd2b2c24818b58bf5f4f8f04071
+
 if(!empty(prop("Recur Interval")) and !empty(prop("Due")),
     if(prop("Recur Interval") > 0 and prop("Recur Interval") == ceil(prop("Recur Interval")),
         lets(
